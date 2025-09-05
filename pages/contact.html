@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Nangkhoeum Champhai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f8f9fa;
+            --accent-color: #00d4ff;
+            --accent-secondary: #0099cc;
+            --dark-color: #0a0e1a;
+            --darker-color: #050810;
+            --light-color: #1a2332;
+            --text-color: #ffffff;
+            --text-light: #a8b2d1;
+            --text-muted: #6b7794;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0e1a 0%, #1a2332 50%, #0f1419 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(10, 14, 26, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 212, 255, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .logo .dot {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #0a0e1a 0%, #1a2332 25%, #0f1419 50%, #1a2332 75%, #0a0e1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.15), rgba(0, 153, 204, 0.08));
+            top: -400px;
+            right: -400px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.12), rgba(0, 153, 204, 0.05));
+            bottom: -300px;
+            left: -300px;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-color), rgba(0, 153, 204, 0.6));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            background: rgba(10, 14, 26, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .info-item:hover {
+            transform: translateX(10px);
+            background: rgba(10, 14, 26, 0.8);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .info-icon i {
+            font-size: 20px;
+            color: white;
+        }
+
+        .info-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .info-details p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(10, 14, 26, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #00b8e6, var(--accent-color));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.5);
+        }
+
+        .social-media-container {
+            margin-top: 40px;
+        }
+
+        .social-title {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .social-title::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: var(--accent-color);
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: var(--text-light);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: rgba(10, 14, 26, 0.7);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+            border-radius: 50%;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: -1;
+        }
+
+        .social-btn i {
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .social-btn:hover .social-bg {
+            transform: translateY(0);
+        }
+
+        .social-btn:hover i {
+            transform: scale(1.2);
+        }
+
+        .social-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 14, 26, 0.9);
+            color: var(--text-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .social-btn:hover::after {
+            opacity: 1;
+            visibility: visible;
+            bottom: -35px;
+        }
+
+        .map-container {
+            margin-top: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            display: block;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                color: var(--text-color);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .info-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .info-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">My Portfolio<span class="dot">.</span></div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skill.html">Skills</a></li>
+                    <li><a href="project.html">Projects</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="section-title animated">
+                    <h2>Get In Touch</h2>
+                    <p>Feel free to contact me anytime. I'm always open to discussing new projects, creative ideas, or
+                        opportunities to be part of your vision.</p>
+                </div>
+
+                <div class="contact-container">
+                    <div class="contact-info animated delay-1">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-details">
+                                <h3>Location</h3>
+                                <p>BP 511,Phum Tropeang Chhuk(Borey Sorla) Sangtak,Street 371,Phnom Penh</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-details">
+                                <h3>Email</h3>
+                                <p>nangkhoeum.champhai@student.passerellesnumeriques.org
+                                    /cpnkhoeumvd030005@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-details">
+                                <h3>Phone</h3>
+                                <p>+855 88 468 3201 / 097 85 44 641</p>
+                            </div>
+                        </div>
+
+                        <div class="social-media-container">
+                            <div class="social-title">Follow me on social media</div>
+                            <div class="social-icons">
+                                <a href="#" class="social-btn" data-tooltip="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                    <span class="social-bg"></span>
+                                </a>
+                                <a href="#" class="social-btn" data-tooltip="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                    <span class="social-bg"></span>
+                                </a>
+                                <a href="#" class="social-btn" data-tooltip="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span class="social-bg"></span>
+                                </a>
+                                <a href="https://github.com/" class="social-btn" data-tooltip="GitHub">
+                                    <i class="fab fa-github"></i>
+                                    <span class="social-bg"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form animated delay-2">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Enter your name"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your email"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control" placeholder="Enter subject"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" class="form-control" placeholder="Enter your message"
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="map-container animated delay-3">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15642.07551490957!2d104.88056036977536!3d11.501999999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109510c86fb8c8b%3A0x35b71197c2d2e7a8!2sPasserelles%20Num%C3%A9riques%20Cambodia%20(PNC)!5e0!3m2!1sen!2skh!4v1692461521178!5m2!1sen!2skh"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Simple form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && subject && message) {
+                // In a real application, you would send this data to a server
+                alert('Thank you for your message! I will get back to you soon.');
+                document.getElementById('contactForm').reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+
+</html>

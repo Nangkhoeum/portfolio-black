@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Nangkhoeum Champhai Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f8f9fa;
+            --accent-color: #00d4ff;
+            --accent-secondary: #0099cc;
+            --dark-color: #0a0e1a;
+            --darker-color: #050810;
+            --light-color: #1a2332;
+            --text-color: #ffffff;
+            --text-light: #a8b2d1;
+            --text-muted: #6b7794;
+            --transition: all 0.3s ease;
+            --section-spacing: 100px;
+            --card-spacing: 30px;
+            --element-spacing: 20px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0e1a 0%, #1a2332 50%, #0f1419 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--element-spacing);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(10, 14, 26, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 212, 255, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .logo .dot {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a.active:after,
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 140px 0 var(--section-spacing);
+            background: linear-gradient(135deg, #0a0e1a 0%, #1a2332 25%, #0f1419 50%, #1a2332 75%, #0a0e1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-section::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.08), rgba(0, 153, 204, 0.04));
+            top: -300px;
+            right: -300px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .projects-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.06), rgba(0, 153, 204, 0.03));
+            bottom: -200px;
+            left: -200px;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title h1::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-color), rgba(0, 153, 204, 0.6));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 30px auto 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .projects-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .projects-timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-color), rgba(0, 212, 255, 0.3));
+            transform: translateX(-50%);
+        }
+
+        .project-item {
+            position: relative;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .project-item:nth-child(odd) {
+            padding-right: calc(50% + 30px);
+            text-align: right;
+        }
+
+        .project-item:nth-child(even) {
+            padding-left: calc(50% + 30px);
+            text-align: left;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, rgba(10, 14, 26, 0.9), rgba(26, 35, 50, 0.7));
+            border-radius: 16px;
+            padding: 35px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.25);
+            border-color: var(--accent-color);
+        }
+
+        .project-date {
+            position: absolute;
+            left: 50%;
+            top: 25px;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            white-space: nowrap;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .project-icon {
+            position: absolute;
+            left: 50%;
+            top: 65px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid var(--dark-color);
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .project-header {
+            margin-bottom: 25px;
+        }
+
+        .project-company {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+
+        .project-role {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .project-technologies {
+            margin-top: 25px;
+        }
+
+        .tech-label {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 12px;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: rgba(0, 212, 255, 0.15);
+            color: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: rgba(0, 212, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Experience Categories */
+        .experience-category {
+            margin-bottom: 100px;
+        }
+
+        .category-title {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            letter-spacing: -0.5px;
+        }
+
+        .category-title::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.05));
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            margin-top: 60px;
+            border-radius: 20px;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-content p {
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 35px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #00b8e6, var(--accent-color));
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.5);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1000px;
+            }
+
+            .project-item:nth-child(odd) {
+                padding-right: calc(50% + 20px);
+            }
+
+            .project-item:nth-child(even) {
+                padding-left: calc(50% + 20px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .timeline-line {
+                left: 35px;
+            }
+
+            .project-item:nth-child(odd),
+            .project-item:nth-child(even) {
+                padding-left: 100px;
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .project-date {
+                left: 35px;
+                transform: none;
+            }
+
+            .project-icon {
+                left: 35px;
+                transform: none;
+            }
+
+            .project-card {
+                margin: 0;
+            }
+
+            .section-title h1 {
+                font-size: 3rem;
+            }
+
+            .category-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title p {
+                font-size: 1.1rem;
+            }
+
+            .category-title {
+                font-size: 2rem;
+            }
+
+            .project-card {
+                padding: 30px 25px;
+            }
+
+            .project-item:nth-child(odd),
+            .project-item:nth-child(even) {
+                padding-left: 80px;
+            }
+
+            .timeline-line {
+                left: 30px;
+            }
+
+            .project-date {
+                left: 30px;
+            }
+
+            .project-icon {
+                left: 30px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .cta-content p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title h1 {
+                font-size: 2.2rem;
+            }
+
+            .category-title {
+                font-size: 1.8rem;
+            }
+
+            .project-company {
+                font-size: 1.4rem;
+            }
+
+            .project-title {
+                font-size: 1.1rem;
+            }
+
+            .cta-content h2 {
+                font-size: 1.9rem;
+            }
+
+            .project-item:nth-child(odd),
+            .project-item:nth-child(even) {
+                padding-left: 70px;
+            }
+
+            .timeline-line {
+                left: 25px;
+            }
+
+            .project-date {
+                left: 25px;
+                font-size: 0.85rem;
+                padding: 8px 16px;
+            }
+
+            .project-icon {
+                left: 25px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .project-icon i {
+                font-size: 20px;
+            }
+
+            .project-description {
+                font-size: 1rem;
+            }
+
+            nav {
+                padding: 15px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">My Portfolio<span class="dot">.</span></div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skill.html">Skills</a></li>
+                    <li><a href="project.html" class="active">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="section-title animated">
+                <h1>My Projects Experience </h1>
+                <p>A comprehensive overview of my professional experience and personal projects, showcasing my growth as
+                    a developer and the diverse technologies I've worked with.</p>
+            </div>
+
+            <div class="projects-container">
+                <!-- Experience Section -->
+                <div class="experience-category animated delay-1">
+                    <h2 class="category-title">PROFESSIONAL EXPERIENCE</h2>
+                    <div class="projects-timeline">
+                        <div class="timeline-line"></div>
+
+                        <!-- Visual Company Two -->
+                        <div class="project-item">
+                            <div class="project-date">14th July - 29th Aug 2025</div>
+                            <div class="project-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <h3 class="project-company">Visual Company Two</h3>
+                                    <p class="project-title">Build a system for Leave Management</p>
+                                    <span class="project-role">Developer</span>
+                                </div>
+                                <div class="project-description">
+                                    Developed a comprehensive system for students to send and track leave requests.
+                                    Built user interface and worked on both web and mobile versions to ensure smooth
+                                    performance. The system streamlined the leave management process and improved
+                                    communication between students and administration.
+                                </div>
+                                <div class="project-technologies">
+                                    <span class="tech-label">Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">Expo</span>
+                                        <span class="tech-tag">Vue.js</span>
+                                        <span class="tech-tag">Laravel</span>
+                                        <span class="tech-tag">MySQL Database</span>
+                                        <span class="tech-tag">Tailwind CSS</span>
+                                        <span class="tech-tag">Jira</span>
+                                        <span class="tech-tag">Postman</span>
+                                        <span class="tech-tag">GitHub</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vue.js Project -->
+                        <div class="project-item">
+                            <div class="project-date">1st July - 11th July 2025</div>
+                            <div class="project-icon">
+                                <i class="fab fa-vuejs"></i>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <h3 class="project-company">Vue.js Project</h3>
+                                    <p class="project-title">Build a Website about lotusoutreach</p>
+                                    <span class="project-role">Developer</span>
+                                </div>
+                                <div class="project-description">
+                                    Created and styled pages for the lotusoutreach website, ensuring the design was
+                                    simple, clean, and mobile-friendly. Improved the overall design and added functions
+                                    based on requirements to enhance user experience and functionality.
+                                </div>
+                                <div class="project-technologies">
+                                    <span class="tech-label">Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">Vue.js</span>
+                                        <span class="tech-tag">Tailwind CSS</span>
+                                        <span class="tech-tag">GitHub</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Visual Company One -->
+                        <div class="project-item">
+                            <div class="project-date">25th Feb - 02nd May 2025</div>
+                            <div class="project-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <h3 class="project-company">Visual Company One</h3>
+                                    <p class="project-title">Build a system for grocery stores</p>
+                                    <span class="project-role">Developer</span>
+                                </div>
+                                <div class="project-description">
+                                    Built comprehensive pages for product display, card management, and order tracking.
+                                    Designed user interface, connected backend systems, and fixed issues to make the
+                                    system work smoothly. Implemented MVC architecture for better code organization.
+                                </div>
+                                <div class="project-technologies">
+                                    <span class="tech-label">Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">PHP</span>
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">HTML</span>
+                                        <span class="tech-tag">CSS</span>
+                                        <span class="tech-tag">GitHub</span>
+                                        <span class="tech-tag">Jira</span>
+                                        <span class="tech-tag">MVC Process</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript Project -->
+                        <div class="project-item">
+                            <div class="project-date">12th - 29th Jan 2025</div>
+                            <div class="project-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <h3 class="project-company">JavaScript Project</h3>
+                                    <p class="project-title">Expense Tracker</p>
+                                    <span class="project-role">Developer</span>
+                                </div>
+                                <div class="project-description">
+                                    Developed a simple application to record daily expenses with real-time updates.
+                                    Implemented totals, charts, and interactive features. Improved UI design and fixed
+                                    coding issues to ensure smooth functionality and better user experience.
+                                </div>
+                                <div class="project-technologies">
+                                    <span class="tech-label">Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">HTML</span>
+                                        <span class="tech-tag">CSS</span>
+                                        <span class="tech-tag">Chart.js</span>
+                                        <span class="tech-tag">GitHub</span>
+                                        <span class="tech-tag">Jira</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Projects Section -->
+                <div class="experience-category animated delay-2">
+                    <h2 class="category-title">FIRST PROJECTS</h2>
+                    <div class="projects-timeline">
+                        <div class="timeline-line"></div>
+
+                        <!-- Algorithm Project -->
+                        <div class="project-item">
+                            <div class="project-date">11th - 20th Nov 2024</div>
+                            <div class="project-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <h3 class="project-company">Algorithm Project</h3>
+                                    <p class="project-title">Built Telegram Chatbot</p>
+                                    <span class="project-role">Developer</span>
+                                </div>
+                                <div class="project-description">
+                                    Developed a chatbot that replies automatically to user messages, testing to make
+                                    sure it works in real time. Applied algorithm logic to manage different user inputs
+                                    and responses, ensuring efficient and accurate communication.
+                                </div>
+                                <div class="project-technologies">
+                                    <span class="tech-label">Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">Applied Algorithm Logic</span>
+                                        <span class="tech-tag">Telegram API</span>
+                                        <span class="tech-tag">Version Control</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Web Design Project -->
+                        <div class="project-item">
+                            <div class="project-date">21st Sep - 4th Nov 2024</div>
+                            <div class="project-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <h3 class="project-company">Web Design Project</h3>
+                                    <p class="project-title">Made a website for bakery shop</p>
+                                    <span class="project-role">Developer</span>
+                                </div>
+                                <div class="project-description">
+                                    Worked in a team of four to build an inventory management system for a bakery shop.
+                                    Created a static website focusing on design and responsiveness, ensuring optimal
+                                    user experience across different devices and screen sizes.
+                                </div>
+                                <div class="project-technologies">
+                                    <span class="tech-label">Technologies:</span>
+                                    <div class="tech-tags">
+                                        <span class="tech-tag">HTML</span>
+                                        <span class="tech-tag">CSS</span>
+                                        <span class="tech-tag">Sass</span>
+                                        <span class="tech-tag">GitHub</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section animated delay-3">
+                <div class="cta-content">
+                    <h2>Interested in My Work?</h2>
+                    <p>Let's discuss how my experience can contribute to your next project</p>
+                    <div class="cta-buttons">
+                        <a href="pages/skill.html" class="btn btn-primary">
+                            <i class="fas fa-code"></i> View My Skills
+                        </a>
+                        <a href="pages/contact.html" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i> Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Animate project items on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+
+</html>
